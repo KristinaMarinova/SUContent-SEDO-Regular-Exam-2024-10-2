@@ -3,11 +3,12 @@ name: Build and run unit tests
 on:
   push:
     branches: [ "develop" ]
+    
 jobs:
   build_unit_tests:
     runs-on: ubuntu-latest
     steps:
-    - name: CHeckout the code
+    - name: Checkout the code
       uses: actions/checkout@v4
     - name: Setup .NET v6
       uses: actions/setup-dotnet@v4
@@ -18,4 +19,4 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Run unit tests
-      run: dotnet test Homies.UnitTests\Homies.UnitTests.csproj --no-build --verbosity normal
+      run: dotnet test Homies.UnitTests/Homies.UnitTests.csproj --no-build --verbosity normal
